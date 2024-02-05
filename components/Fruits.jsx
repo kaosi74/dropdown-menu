@@ -1,9 +1,24 @@
 import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import React, { useState } from "react";
 import Ionicons from "@expo/vector-icons/Ionicons"
+import { useNavigation } from "@react-navigation/native";
 
 export default function Fruits({ fruitItem }) {
   const [showItems, setShowItems] = useState(false);
+  const navigation = useNavigation()
+
+  const handleFruitSelection = (fruit) => {
+    switch (fruit) {
+      case 'banana':
+        navigation.navigate('BananaScreen');
+        break;
+      case 'apple':
+        navigation.navigate('AppleScreen');
+        break;
+      default:
+        break;
+    }
+  }
 
   const toggleItems = () => {
     setShowItems(!showItems);
